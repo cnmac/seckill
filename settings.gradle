@@ -1,0 +1,6 @@
+rootProject.name = 'seckill'
+
+include 'entity'
+include 'library'
+include 'application'
+

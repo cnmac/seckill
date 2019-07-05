@@ -1,6 +1,7 @@
 package com.mooyle.seckill.controller;
 
 import com.mooyle.entity.model.Comments;
+import com.mooyle.seckill.common.redis.UserKey;
 import com.mooyle.seckill.result.Result;
 import com.mooyle.seckill.service.CommentService;
 import com.mooyle.seckill.service.RedisService;
@@ -29,9 +30,9 @@ public class SampleController {
 
     @RequestMapping(value = "/redis/get", method = RequestMethod.GET)
     @ResponseBody
-    public Result<Comments> redisGet(){
-        Comments comment = commentService.getById("1");
-        return Result.success(comment);
+    public Result<Boolean> redisGet(){
+        boolean isSet = redisService.set(UserKey.getById, "1", "");
+        return Result.success(isSet);
     }
 
 }

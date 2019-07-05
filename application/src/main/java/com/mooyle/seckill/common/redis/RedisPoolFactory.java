@@ -1,5 +1,6 @@
-package com.mooyle.seckill.common;
+package com.mooyle.seckill.common.redis;
 
+import com.mooyle.seckill.common.redis.RedisConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.mooyle.seckill.result;
+package com.mooyle.application.result;
 
 public class Result<T> {
 	private int code;
@@ -6,11 +6,11 @@ public class Result<T> {
 	private T data;
 
 	public static <T> Result<T> success(T data){
-		return new  Result<T>(data);
+		return new  Result<>(data);
 	}
 
 	public static <T> Result<T> error(CodeMsg cm){
-		return new  Result<T>(cm);
+		return new  Result<>(cm);
 	}
 	
 	private Result(T data) {

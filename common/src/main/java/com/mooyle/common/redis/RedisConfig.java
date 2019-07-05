@@ -1,4 +1,4 @@
-package com.mooyle.seckill.common.redis;
+package com.mooyle.common.redis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

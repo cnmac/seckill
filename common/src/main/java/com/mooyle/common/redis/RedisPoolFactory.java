@@ -1,6 +1,5 @@
-package com.mooyle.seckill.common.redis;
+package com.mooyle.common.redis;
 
-import com.mooyle.seckill.common.redis.RedisConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import redis.clients.jedis.JedisPoolConfig;
 public class RedisPoolFactory {
 
     @Autowired
-    RedisConfig redisConfig;
+    private RedisConfig redisConfig;
 
     @Bean
     public JedisPool JedisPoolFactory() {
@@ -19,8 +18,7 @@ public class RedisPoolFactory {
         poolConfig.setMaxIdle(redisConfig.getPoolMaxIdle());
         poolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
         poolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait() * 1000);
-        JedisPool jp = new JedisPool(poolConfig, redisConfig.getHost(), redisConfig.getPort(),
+        return new JedisPool(poolConfig, redisConfig.getHost(), redisConfig.getPort(),
                 redisConfig.getTimeout() * 1000, redisConfig.getPassword(), 0);
-        return jp;
     }
 }

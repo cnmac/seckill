@@ -1,4 +1,4 @@
-package com.mooyle.seckill.common.redis;
+package com.mooyle.common.redis;
 
 public abstract class RedisBasePrefix implements RedisKeyPrefix {
 
@@ -22,7 +22,7 @@ public abstract class RedisBasePrefix implements RedisKeyPrefix {
 
     @Override
     public String getPrefix() {
-        String className = getClass().getName();
+        String className = getClass().getSimpleName();
         return className + ":" + prefix;
     }
 }

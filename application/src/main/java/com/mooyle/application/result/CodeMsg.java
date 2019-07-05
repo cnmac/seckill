@@ -1,4 +1,4 @@
-package com.mooyle.seckill.result;
+package com.mooyle.application.result;
 
 public class CodeMsg {
 	private int code;

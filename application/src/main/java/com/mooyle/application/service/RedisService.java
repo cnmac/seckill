@@ -1,7 +1,7 @@
-package com.mooyle.seckill.service;
+package com.mooyle.application.service;
 
 import com.alibaba.fastjson.JSON;
-import com.mooyle.seckill.common.redis.RedisKeyPrefix;
+import com.mooyle.common.redis.RedisKeyPrefix;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPool;
 public class RedisService {
 
     @Autowired
-    JedisPool jedisPool;
+    private JedisPool jedisPool;
 
 
     public <T> boolean set(RedisKeyPrefix prefix, String key, T value) {
@@ -43,8 +43,7 @@ public class RedisService {
             jedis = jedisPool.getResource();
             String realKey = prefix.getPrefix() + key;
             String str = jedis.get(realKey);
-            T t = stringToBean(str, clazz);
-            return t;
+            return stringToBean(str, clazz);
         } finally {
             returnToPool(jedis);
         }
@@ -75,7 +74,7 @@ public class RedisService {
 
     }
 
-    public <T> boolean exists(RedisKeyPrefix prefix, String key) {
+    public boolean exists(RedisKeyPrefix prefix, String key) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -105,6 +104,5 @@ public class RedisService {
             jedis.close();
         }
     }
-
 
 }

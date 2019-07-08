@@ -31,7 +31,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
                                   NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
-        HttpServletResponse response = webRequest.getNativeRequest(HttpServletResponse.class);
+        HttpServletResponse response = webRequest.getNativeResponse(HttpServletResponse.class);
         String paramToken = request.getParameter(SeckillUserService.COOKI_NAME_TOKEN);
         String cookieToken = getCookieValue(request, SeckillUserService.COOKI_NAME_TOKEN);
         if (StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)) {

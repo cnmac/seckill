@@ -19,6 +19,10 @@ bootJar {
 }
 sourceCompatibility = 1.8
 
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+
 repositories {
     mavenLocal()
     maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
@@ -27,8 +31,8 @@ repositories {
 
 dependencies {
 //    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile project(':entity')
     compile project(':common')
+    compile project(':service')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1")
     compile 'com.alibaba:druid-spring-boot-starter:1.1.17'

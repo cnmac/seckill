@@ -26,6 +26,15 @@
     from goods
     where id = #{id,jdbcType=BIGINT}
   </select>
+  
+  <select id="listGoodsVo" resultType="com.mooyle.entity.vo.GoodsVo">
+    select g.*,mg.stock_count, mg.start_date, mg.end_date,mg.seckill_price from seckill_goods mg left join goods g on mg.goods_id = g.id
+  </select>
+
+  <select id="getGoodsVoByGoodsId" parameterType="java.lang.Long" resultType="com.mooyle.entity.vo.GoodsVo">
+    select g.*,mg.stock_count, mg.start_date, mg.end_date,mg.seckill_price from seckill_goods mg left join goods g on mg.goods_id = g.id where g.id = #{goodsId,jdbcType=BIGINT}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from goods
     where id = #{id,jdbcType=BIGINT}

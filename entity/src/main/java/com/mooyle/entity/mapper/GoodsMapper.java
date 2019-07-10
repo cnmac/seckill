@@ -1,6 +1,9 @@
 package com.mooyle.entity.mapper;
 
 import com.mooyle.entity.model.Goods;
+import com.mooyle.entity.vo.GoodsVo;
+
+import java.util.List;
 
 public interface GoodsMapper {
     int deleteByPrimaryKey(Long id);
@@ -16,4 +19,8 @@ public interface GoodsMapper {
     int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
+
+    List<GoodsVo> listGoodsVo();
+
+    GoodsVo getGoodsVoByGoodsId(Long goodsId);
 }

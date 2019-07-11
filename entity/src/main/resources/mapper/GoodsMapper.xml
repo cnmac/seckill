@@ -120,6 +120,11 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+    <update id="reduceStock" parameterType="java.lang.Long">
+        update seckill_goods set stock_count = stock_count - 1 where goods_id = #{goodsId,jdbcType=BIGINT}
+    </update>
+
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mooyle.entity.model.Goods">
     update goods
     set goods_name = #{goodsName,jdbcType=VARCHAR},

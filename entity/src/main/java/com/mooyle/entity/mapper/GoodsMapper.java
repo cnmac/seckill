@@ -1,6 +1,7 @@
 package com.mooyle.entity.mapper;
 
 import com.mooyle.entity.model.Goods;
+import com.mooyle.entity.model.SeckillGoods;
 import com.mooyle.entity.vo.GoodsVo;
 
 import java.util.List;
@@ -23,4 +24,6 @@ public interface GoodsMapper {
     List<GoodsVo> listGoodsVo();
 
     GoodsVo getGoodsVoByGoodsId(Long goodsId);
+
+    void reduceStock(SeckillGoods g);
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 public class LoginVo {
 	
-	@com.sun.istack.internal.NotNull
+	@NotNull
 	@IsMobile
 	private String mobile;
 	
